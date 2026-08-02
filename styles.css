@@ -1,0 +1,321 @@
+/* Phosphor terminal. Dark only by design — see README for the direction. */
+:root {
+  color-scheme: dark;
+
+  --bg: #060a07;
+  --fg-bright: #7eff7e;
+  --fg: #a9d9ae;
+  --fg-dim: #57a066;
+  --accent: #ffb454;
+  --border: rgba(126, 255, 126, 0.16);
+
+  /* Glow is reserved for display type — it smears body copy at reading size. */
+  --glow: 0 0 18px rgba(126, 255, 126, 0.35);
+
+  --measure: 86ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+::selection {
+  background: var(--fg-bright);
+  color: var(--bg);
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+code {
+  font: inherit;
+  color: var(--fg-bright);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10;
+  background: var(--fg-bright);
+  color: var(--bg);
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Layout ------------------------------------------------------------------ */
+
+.shell {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 3rem 1.25rem 0;
+}
+
+.section {
+  margin-top: 4rem;
+}
+
+/* Shell chrome ------------------------------------------------------------ */
+
+.prompt {
+  color: var(--accent);
+}
+
+.section-heading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fg-bright);
+  text-transform: lowercase;
+  padding-bottom: 0.7rem;
+  margin-bottom: 1.9rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+/* Hero -------------------------------------------------------------------- */
+
+.eyebrow {
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+}
+
+.whoami {
+  color: var(--fg-bright);
+  font-size: 0.9rem;
+}
+
+.hero h1 {
+  margin-top: 1.1rem;
+  font-size: clamp(1.85rem, 5.5vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--fg-bright);
+  text-shadow: var(--glow);
+  text-wrap: balance;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.02em;
+  margin-left: 0.12em;
+  vertical-align: -0.14em;
+  background: var(--fg-bright);
+  box-shadow: var(--glow);
+  animation: blink 1.06s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.lede {
+  margin-top: 1.4rem;
+  max-width: 72ch;
+  text-wrap: pretty;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+/* Hover inverts, the way a terminal selection does. */
+.hero-links a {
+  color: var(--fg-bright);
+  text-transform: lowercase;
+  text-decoration: none;
+  padding: 0.1em 0.15em;
+}
+
+.hero-links a::before {
+  content: "[ ";
+  color: var(--fg-dim);
+}
+
+.hero-links a::after {
+  content: " ]";
+  color: var(--fg-dim);
+}
+
+.hero-links a:hover,
+.hero-links a:hover::before,
+.hero-links a:hover::after {
+  background: var(--fg-bright);
+  color: var(--bg);
+}
+
+/* Projects ---------------------------------------------------------------- */
+
+.project-list {
+  list-style: none;
+  display: grid;
+  gap: 2.75rem;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.entry-head h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg-bright);
+  white-space: nowrap;
+}
+
+/* Dashed filler between name and year, the way an ls listing lines up. */
+.leader {
+  flex: 1 1 auto;
+  min-width: 1.5rem;
+  border-bottom: 1px dashed var(--border);
+  transform: translateY(-0.3em);
+}
+
+.year {
+  color: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-body {
+  margin-top: 0.75rem;
+  max-width: 72ch;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.85rem;
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  text-transform: lowercase;
+  color: var(--fg-dim);
+}
+
+.tags li::before {
+  content: "[";
+}
+
+.tags li::after {
+  content: "]";
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.entry-links a {
+  color: var(--accent);
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+.entry-links a::before {
+  content: "> ";
+  color: var(--fg-dim);
+}
+
+.entry-links a:hover,
+.entry-links a:hover::before {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* About ------------------------------------------------------------------- */
+
+.prose {
+  max-width: 72ch;
+  display: grid;
+  gap: 1.1rem;
+}
+
+/* Footer ------------------------------------------------------------------ */
+
+.footer {
+  margin-top: 4.5rem;
+  padding: 1.5rem 0 3rem;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--fg-dim);
+}
+
+.footer a {
+  color: var(--fg-dim);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cursor {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

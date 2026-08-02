@@ -3,51 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="budsigur">
-  <title>budsigur</title>
+  <title>Marino Brnardic — Web Developer</title>
+  <meta name="description" content="Web developer building things with TypeScript, React and Vue. Selected projects, source code and contact.">
+  <meta name="author" content="Marino Brnardic">
+  <meta name="theme-color" content="#060a07">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marino Brnardic — Web Developer">
+  <meta property="og:description" content="Web developer building things with TypeScript, React and Vue.">
+  <meta property="og:url" content="https://marinobrnardic.github.io/budsigur/">
+
+  <!-- Swap both of these to https://budsigur.is-a.dev once that domain is live. -->
+  <link rel="canonical" href="https://marinobrnardic.github.io/budsigur/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      width: 100vw;
-      height: 100vh;
-      overflow: auto;
-      font-family: "DM Sans", sans-serif;
-      background: #000000;
-      padding: 16px;
-    }
-
-    #text-container {
-      color: #7eff7e;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.2;
-      text-transform: lowercase;
-      text-shadow: 0 0 20px rgba(126, 255, 126, 0.3);
-    }
-
-    .highlight {
-      color: #7eff7e;
-    }
-
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="text-container"></div>
-  
-  <script>
-    const container = document.getElementById("text-container");
-    const span = document.createElement("span");
-    span.textContent = "budsigur";
-    container.appendChild(span);
-  </script>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="shell">
+    <header class="hero">
+      <p class="eyebrow"><span class="prompt" aria-hidden="true">visitor@budsigur:~$ </span>whoami</p>
+      <p class="whoami">Marino Brnardic</p>
+      <h1>I build for the web.<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="lede">
+        Front-end leaning full-stack developer working mostly in TypeScript, React and Vue.
+        I like small, well-specified apps: write the spec, build the thing, keep it maintainable.
+        Lately that means Next.js and Supabase, plus the odd Node script to automate something tedious.
+      </p>
+
+      <nav class="hero-links" aria-label="Contact and profiles">
+        <a href="https://github.com/marinobrnardic">github</a>
+        <a href="mailto:budsigur@gmail.com">email</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="section" aria-label="Selected work">
+        <h2 class="section-heading"><span class="prompt" aria-hidden="true">$ </span>ls projects/</h2>
+
+        <ul class="project-list">
+          <li>
+            <article class="entry">
+              <div class="entry-head">
+                <h3>LOG</h3>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="year">2026</span>
+              </div>
+              <p class="entry-body">
+                A personal workout logger built around a fixed two-day split. Set-by-set entry with
+                typed set roles (top set, back-off, normal), warmup weights suggested from the
+                previous session, and progress charts. Built to a written spec first, with auth,
+                row-level security and offline support via a service worker.
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>Next.js 15</li>
+                <li>React 19</li>
+                <li>TypeScript</li>
+                <li>Supabase</li>
+                <li>Tailwind v4</li>
+                <li>Recharts</li>
+                <li>Vitest</li>
+              </ul>
+              <p class="entry-links">
+                <a href="https://log-two-xi.vercel.app">Live site<span class="sr-only"> for LOG</span></a>
+                <a href="https://github.com/marinobrnardic/log">Source<span class="sr-only"> for LOG</span></a>
+              </p>
+            </article>
+          </li>
+
+          <li>
+            <article class="entry">
+              <div class="entry-head">
+                <h3>Screenshot automation</h3>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="year">2021</span>
+              </div>
+              <p class="entry-body">
+                A Node pipeline for visual review of whole websites. It pulls a site's
+                <code>sitemap.xml</code>, extracts every URL, screenshots each page with Puppeteer,
+                compiles the lot into a single PDF, uploads it to Azure Blob Storage and pushes it
+                into Filestage for sign-off. URL parameters trigger specific page states, like
+                opening the cookie dialog.
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>Node.js</li>
+                <li>Puppeteer</li>
+                <li>PDFKit</li>
+                <li>Azure Blob Storage</li>
+                <li>Azure AD</li>
+              </ul>
+              <p class="entry-links">
+                <a href="https://github.com/marinobrnardic/screenshot-automation">Source<span class="sr-only"> for Screenshot automation</span></a>
+              </p>
+            </article>
+          </li>
+
+          <li>
+            <article class="entry">
+              <div class="entry-head">
+                <h3>digimondo</h3>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="year">2022</span>
+              </div>
+              <p class="entry-body">
+                A dashboard for LoRaWAN IoT devices. Paginated device table backed by the digimondo
+                API, with sorting by name, ID and creation date pushed to the server rather than
+                applied to a single page of results client-side.
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>Vue 2</li>
+                <li>Vuetify</li>
+                <li>Axios</li>
+              </ul>
+              <p class="entry-links">
+                <a href="https://github.com/marinobrnardic/digimondo">Source<span class="sr-only"> for digimondo</span></a>
+              </p>
+            </article>
+          </li>
+
+          <li>
+            <article class="entry">
+              <div class="entry-head">
+                <h3>Crypto tracker</h3>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="year">2020</span>
+              </div>
+              <p class="entry-body">
+                An early Vue project tracking cryptocurrency prices. Central store for fetched market
+                data, routing between the overview and per-currency detail, and locale-aware currency
+                formatting.
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>Vue 2</li>
+                <li>Vuex</li>
+                <li>Vue Router</li>
+                <li>SCSS</li>
+                <li>Webpack</li>
+              </ul>
+              <p class="entry-links">
+                <a href="https://github.com/marinobrnardic/crypto-app">Source<span class="sr-only"> for Crypto tracker</span></a>
+              </p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-label="About">
+        <h2 class="section-heading"><span class="prompt" aria-hidden="true">$ </span>cat about.txt</h2>
+        <div class="prose">
+          <p>
+            I've been writing web apps since around 2020, starting in the Vue ecosystem and moving
+            toward React and TypeScript. The through-line is a preference for working out what I'm
+            building before I build it — my most recent project started as a spec document and got
+            implemented against it.
+          </p>
+          <p>
+            I'm equally happy away from the browser. The screenshot pipeline above exists because
+            manually capturing a few hundred pages before every release was a miserable way to spend
+            an afternoon.
+          </p>
+          <p>
+            The fastest way to reach me is <a href="mailto:budsigur@gmail.com">email</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built with plain HTML and CSS. No build step.</p>
+      <p><a href="https://github.com/marinobrnardic">github.com/marinobrnardic</a></p>
+    </footer>
+  </div>
 </body>
 </html>
-
