@@ -197,26 +197,36 @@ code {
   content: "]";
 }
 
-.entry-links {
+/* Prompt-marked links: project entries and the one in the hero. */
+.entry-links,
+.hero-contact {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 1rem;
 }
 
-.entry-links a {
+.hero-contact {
+  margin-top: 1.75rem;
+}
+
+.entry-links a,
+.hero-contact a {
   color: var(--accent);
   text-transform: lowercase;
   text-decoration: none;
 }
 
-.entry-links a::before {
+.entry-links a::before,
+.hero-contact a::before {
   content: "> ";
   color: var(--fg-dim);
 }
 
 .entry-links a:hover,
-.entry-links a:hover::before {
+.entry-links a:hover::before,
+.hero-contact a:hover,
+.hero-contact a:hover::before {
   background: var(--accent);
   color: var(--bg);
 }
