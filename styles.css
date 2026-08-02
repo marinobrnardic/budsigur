@@ -207,20 +207,14 @@ code {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--fg-bright);
-  white-space: nowrap;
 }
 
-/* Dashed filler between name and year, the way an ls listing lines up. */
+/* Dashed rule trailing off the project name, the way an ls listing lines up. */
 .leader {
   flex: 1 1 auto;
   min-width: 1.5rem;
   border-bottom: 1px dashed var(--border);
   transform: translateY(-0.3em);
-}
-
-.year {
-  color: var(--fg-dim);
-  font-variant-numeric: tabular-nums;
 }
 
 .entry-body {
