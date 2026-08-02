@@ -159,38 +159,6 @@ code {
   text-wrap: pretty;
 }
 
-.hero-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-/* Hover inverts, the way a terminal selection does. */
-.hero-links a {
-  color: var(--fg-bright);
-  text-transform: lowercase;
-  text-decoration: none;
-  padding: 0.1em 0.15em;
-}
-
-.hero-links a::before {
-  content: "[ ";
-  color: var(--fg-dim);
-}
-
-.hero-links a::after {
-  content: " ]";
-  color: var(--fg-dim);
-}
-
-.hero-links a:hover,
-.hero-links a:hover::before,
-.hero-links a:hover::after {
-  background: var(--fg-bright);
-  color: var(--bg);
-}
-
 /* Projects ---------------------------------------------------------------- */
 
 .project-list {
