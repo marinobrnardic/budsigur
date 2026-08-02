@@ -197,24 +197,10 @@ code {
   gap: 2.75rem;
 }
 
-.entry-head {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-}
-
-.entry-head h3 {
+.entry h3 {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--fg-bright);
-}
-
-/* Dashed rule trailing off the project name, the way an ls listing lines up. */
-.leader {
-  flex: 1 1 auto;
-  min-width: 1.5rem;
-  border-bottom: 1px dashed var(--border);
-  transform: translateY(-0.3em);
 }
 
 .entry-body {
