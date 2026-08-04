@@ -5,6 +5,10 @@ and no framework. Plain semantic HTML, one stylesheet, deployed on GitHub Pages.
 
 - `index.html` — the page
 - `styles.css` — design tokens, layout, terminal theme
+- `logo.svg` — the BUD SIGUR badge (source brand mark)
+- `favicon.svg` / `favicon.ico` / `apple-touch-icon.png` — icons; the logo inverted to
+  phosphor green on the near-black background so it reads on light and dark browser chrome
+- `og-image.png` — 1200×630 social preview card (Open Graph / Twitter)
 
 ## Design direction
 
